@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.demo.UserAuth.dto.UserLoginRequest;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -18,7 +20,7 @@ public class UserService {
     }
 
     private User getUserByUsername(String username) {
-        return userRepository.findByUsername(username);
+        return userRepository.findByUsername(username).orElse(null);
     }
 
     public boolean isUserExists(String username) {
@@ -27,6 +29,7 @@ public class UserService {
 
     public boolean validateLogin(UserLoginRequest loginRequest) {
         User user = getUserByUsername(loginRequest.getUsername());
+        if (user == null) return false;
         return user.getPassword().equals(loginRequest.getPassword());
     }
 }
