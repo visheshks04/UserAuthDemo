@@ -8,7 +8,7 @@ git clone https://github.com/visheshks04/UserAuthDemo.git
 
 #### 2. Navigate to the directory
 ```
-cd spring-boot-jwt-auth
+cd UserAuthDemo
 ```
 
 #### 3. Configuration in the application.properties
